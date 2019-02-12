@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="nl.uscki.appcki.wilson.activities.ui.login.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="nl.uscki.appcki.wilson.activities.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/wilson_fragment"/>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="nl.uscki.appcki.wilson.activities.ui.news.NewsFragment"
+        android:label="news_page_fragment"
+        tools:layout="@layout/news_page_fragment" />
+</navigation>
