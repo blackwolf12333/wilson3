@@ -1,4 +1,4 @@
-package nl.uscki.appcki.wilson.activities.ui.main;
+package nl.uscki.appcki.wilson.activities.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -48,7 +48,7 @@ public class LoginFragment extends Fragment {
                                 UserHelper.getInstance().setToken(response.headers().get("X-AUTH-TOKEN"));
 
                                 navController.navigate(
-                                        R.id.mainFragment,
+                                        R.id.newsPageFragment,
                                         null,
                                         new NavOptions.Builder().setPopUpTo(R.id.loginFragment, true).build()
                                 );
