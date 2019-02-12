@@ -9,20 +9,38 @@
         android:id="@+id/loginFragment"
         android:name="nl.uscki.appcki.wilson.activities.ui.login.LoginFragment"
         android:label="login_fragment"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_newsPageFragment2"
+            app:destination="@id/newsPageFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newsPageFragment"
         android:name="nl.uscki.appcki.wilson.activities.ui.news.NewsFragment"
         android:label="news_page_fragment"
-        tools:layout="@layout/news_page_fragment" />
+        tools:layout="@layout/news_page_fragment" >
+    </fragment>
     <fragment
         android:id="@+id/agendaPageFragment"
         android:name="nl.uscki.appcki.wilson.activities.ui.agenda.AgendaPageFragment"
         android:label="agenda_page_fragment"
-        tools:layout="@layout/agenda_page_fragment" />
+        tools:layout="@layout/agenda_page_fragment" >
+        <action
+            android:id="@+id/action_agendaPageFragment_to_loginFragment2"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/roephoekPageFragment"
         android:name="nl.uscki.appcki.wilson.activities.ui.roephoek.RoephoekPageFragment"
         android:label="roephoek_page_fragment"
-        tools:layout="@layout/roephoek_page_fragment" />
+        tools:layout="@layout/roephoek_page_fragment" >
+        <action
+            android:id="@+id/action_roephoekPageFragment_to_loginFragment2"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_logout"
+        app:destination="@id/loginFragment"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/loginFragment"/>
 </navigation>

@@ -1,8 +1,11 @@
 package nl.uscki.appcki.wilson.activities;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -21,18 +24,36 @@ public class MainActivity extends AppCompatActivity {
         ServiceGenerator.init();
         UserHelper.getInstance().init(this.getSharedPreferences("user", MODE_PRIVATE));
 
-        if (!UserHelper.getInstance().getToken().equals("")) {
-            Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.newsPageFragment);
-        } else {
-            Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.loginFragment);
-        }
-
-        setupAppBar();
-    }
-
-    private void setupAppBar () {
         BottomAppBar appBar = findViewById(R.id.bar);
         appBar.setNavigationOnClickListener(view -> new MenuBottomSheet().show(getSupportFragmentManager(), "menuBottomSheet"));
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            if (destination.getId() == R.id.loginFragment) {
+                // With no token to request anything the user is now logged out
+                UserHelper.getInstance().setToken("");
+
+                appBar.setVisibility(View.GONE);
+            } else {
+                if (appBar.getVisibility() == View.GONE)
+                    appBar.setVisibility(View.VISIBLE);
+            }
+        });
+
+        if (UserHelper.getInstance().getToken().equals("")) {
+            navController.navigate(R.id.action_global_logout);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
+        if (UserHelper.getInstance().getToken().equals("") && navController.getCurrentDestination().getId() == R.id.loginFragment)
+            return true;
+
+        return navController.navigateUp();
     }
 
     @Override

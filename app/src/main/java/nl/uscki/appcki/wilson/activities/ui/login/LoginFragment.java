@@ -1,17 +1,14 @@
 package nl.uscki.appcki.wilson.activities.ui.login;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -22,6 +19,11 @@ import nl.uscki.appcki.wilson.api.Callback;
 import nl.uscki.appcki.wilson.api.Services;
 import retrofit2.Response;
 
+/**
+ * LoginFragment
+ * We should never directly navigate to this fragment but always use the @id/action_global_logout
+ * Except in the main activity when we detect there is no token yet and we have to navigate here
+ */
 public class LoginFragment extends Fragment {
     @Nullable
     @Override
@@ -34,29 +36,22 @@ public class LoginFragment extends Fragment {
 
         final NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
 
-        password.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                String usernameText = username.getEditText().getText().toString();
-                String passwordText = password.getEditText().getText().toString();
+        password.getEditText().setOnEditorActionListener((textView, i, keyEvent) -> {
+            String usernameText = username.getEditText().getText().toString();
+            String passwordText = password.getEditText().getText().toString();
 
-                Services.getInstance()
-                        .userService.login(usernameText, passwordText)
-                        .enqueue(new Callback<Void>() {
-                            @Override
-                            public void onSucces(Response<Void> response) {
-                                UserHelper.getInstance().setToken(response.headers().get("X-AUTH-TOKEN"));
+            Services.getInstance()
+                    .userService.login(usernameText, passwordText)
+                    .enqueue(new Callback<Void>() {
+                        @Override
+                        public void onSucces(Response<Void> response) {
+                            UserHelper.getInstance().setToken(response.headers().get("X-AUTH-TOKEN"));
 
-                                navController.navigate(
-                                        R.id.newsPageFragment,
-                                        null,
-                                        new NavOptions.Builder().setPopUpTo(R.id.loginFragment, true).build()
-                                );
-                            }
-                        });
+                            navController.popBackStack();
+                        }
+                    });
 
-                return true;
-            }
+            return true;
         });
 
         return view;
