@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,6 +38,9 @@ public class LoginFragment extends Fragment {
         final NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
 
         password.getEditText().setOnEditorActionListener((textView, i, keyEvent) -> {
+            if (i != EditorInfo.IME_ACTION_GO)
+                return false;
+
             String usernameText = username.getEditText().getText().toString();
             String passwordText = password.getEditText().getText().toString();
 
@@ -45,9 +49,20 @@ public class LoginFragment extends Fragment {
                     .enqueue(new Callback<Void>() {
                         @Override
                         public void onSucces(Response<Void> response) {
-                            UserHelper.getInstance().setToken(response.headers().get("X-AUTH-TOKEN"));
+                            String token = response.headers().get("X-AUTH-TOKEN");
 
-                            navController.popBackStack();
+                            if (token != null && !token.equals("")) {
+                                UserHelper.getInstance().setToken(response.headers().get("X-AUTH-TOKEN"));
+
+                                navController.popBackStack();
+                            }
+                        }
+
+                        @Override
+                        public void onError(Response<Void> response) {
+                            super.onError(response);
+
+                            password.setError("Username or password are invalid!");
                         }
                     });
 
