@@ -16,8 +16,18 @@
         android:label="main_fragment"
         tools:layout="@layout/wilson_fragment"/>
     <fragment
-        android:id="@+id/newsFragment"
+        android:id="@+id/newsPageFragment"
         android:name="nl.uscki.appcki.wilson.activities.ui.news.NewsFragment"
         android:label="news_page_fragment"
         tools:layout="@layout/news_page_fragment" />
+    <fragment
+        android:id="@+id/agendaPageFragment"
+        android:name="nl.uscki.appcki.wilson.activities.ui.agenda.AgendaPageFragment"
+        android:label="agenda_page_fragment"
+        tools:layout="@layout/agenda_page_fragment" />
+    <fragment
+        android:id="@+id/roephoekPageFragment"
+        android:name="nl.uscki.appcki.wilson.activities.ui.roephoek.RoephoekPageFragment"
+        android:label="roephoek_page_fragment"
+        tools:layout="@layout/roephoek_page_fragment" />
 </navigation>
