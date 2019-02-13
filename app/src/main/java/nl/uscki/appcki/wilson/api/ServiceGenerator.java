@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ServiceGenerator {
 
-    public static final String API_BASE_URL = "https://api.dev.uscki.nl/api-dev/api/";
+    public static final String API_BASE_URL = "https://api.dev.uscki.nl/v2/api/";
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
@@ -45,7 +45,7 @@ public class ServiceGenerator {
                     return chain.proceed(original);
 
                 Request.Builder requestBuilder = original.newBuilder()
-                        .header("X-AUTH-TOKEN", UserHelper.getInstance().getToken())
+                        .header("Authorization", UserHelper.getInstance().getToken())
                         .method(original.method(), original.body());
 
                 return chain.proceed(requestBuilder.build());

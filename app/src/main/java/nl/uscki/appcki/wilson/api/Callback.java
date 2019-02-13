@@ -26,7 +26,6 @@ public abstract class Callback<T> implements retrofit2.Callback<T> {
     }
 
     private void handleError(Response<T> response) {
-        // TODO handle better
     }
 
     public abstract void onSucces(Response<T> response);

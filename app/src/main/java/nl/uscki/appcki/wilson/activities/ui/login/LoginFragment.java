@@ -49,10 +49,10 @@ public class LoginFragment extends Fragment {
                     .enqueue(new Callback<Void>() {
                         @Override
                         public void onSucces(Response<Void> response) {
-                            String token = response.headers().get("X-AUTH-TOKEN");
+                            String token = response.headers().get("Authorization");
 
                             if (token != null && !token.equals("")) {
-                                UserHelper.getInstance().setToken(response.headers().get("X-AUTH-TOKEN"));
+                                UserHelper.getInstance().setToken(response.headers().get("Authorization"));
 
                                 navController.popBackStack();
                             }
