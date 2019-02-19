@@ -21,7 +21,6 @@ public class NewsPageDataSource extends PageKeyedDataSource<Integer, NewsItem> {
     public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, NewsItem> callback) {
         networkState.postValue(NetworkState.LOADING);
 
-
         Response<NewsOverview> response = null;
         try {
             response = Services.getInstance()

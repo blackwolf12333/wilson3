@@ -8,4 +8,41 @@
     <style name="AppTheme.MenuHeader">
         <item name="android:padding">@dimen/padding_32</item>
     </style>
+
+    <style name="AppTheme.TextHeader" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_header_size</item>
+    </style>
+
+    <style name="AppTheme.TextSubHeader" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_subheader_size</item>
+    </style>
+
+    <style name="AppTheme.TextSubSubHeader" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_subsubheader_size</item>
+    </style>
+
+    <style name="CodeFont" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorNormalText</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+
+    <style name="SpoilerTextInvisible" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="SpoilerTextVisible" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorNormalText</item>
+    </style>
 </resources>

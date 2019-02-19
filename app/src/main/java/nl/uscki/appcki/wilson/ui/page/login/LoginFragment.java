@@ -1,13 +1,16 @@
-package nl.uscki.appcki.wilson.activities.ui.login;
+package nl.uscki.appcki.wilson.ui.page.login;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,9 +18,9 @@ import androidx.navigation.Navigation;
 import com.google.android.material.textfield.TextInputLayout;
 
 import nl.uscki.appcki.wilson.R;
-import nl.uscki.appcki.wilson.UserHelper;
 import nl.uscki.appcki.wilson.api.Callback;
 import nl.uscki.appcki.wilson.api.Services;
+import nl.uscki.appcki.wilson.helpers.UserHelper;
 import retrofit2.Response;
 
 /**
@@ -35,7 +38,11 @@ public class LoginFragment extends Fragment {
         final TextInputLayout username = view.findViewById(R.id.username);
         final TextInputLayout password = view.findViewById(R.id.password);
 
-        final NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if (activity == null)
+            return view;
+
+        final NavController navController = Navigation.findNavController(activity, R.id.nav_host_fragment);
 
         password.getEditText().setOnEditorActionListener((textView, i, keyEvent) -> {
             if (i != EditorInfo.IME_ACTION_GO)
@@ -54,6 +61,14 @@ public class LoginFragment extends Fragment {
                             if (token != null && !token.equals("")) {
                                 UserHelper.getInstance().setToken(response.headers().get("Authorization"));
 
+                                InputMethodManager inputManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                                // check if no view has focus:
+                                View currentFocusedView = activity.getCurrentFocus();
+                                if (currentFocusedView != null) {
+                                    inputManager.hideSoftInputFromWindow(currentFocusedView.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                                }
+
                                 navController.popBackStack();
                             }
                         }
@@ -71,10 +86,4 @@ public class LoginFragment extends Fragment {
 
         return view;
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
 }

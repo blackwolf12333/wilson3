@@ -1,5 +1,6 @@
-package nl.uscki.appcki.wilson.activities.ui.news;
+package nl.uscki.appcki.wilson.ui.page.news;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import nl.uscki.appcki.wilson.R;
+import nl.uscki.appcki.wilson.activities.MainActivity;
 import nl.uscki.appcki.wilson.viewmodel.news.NewsPageViewModel;
 
 public class NewsFragment extends Fragment {
     private NewsPageViewModel model;
     private NewsPageAdapter adapter;
+
+    private MainActivity context;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,8 +42,20 @@ public class NewsFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.news_page_recyclerview);
         recyclerView.setAdapter(this.adapter);
 
-        this.model.getNewsPageLiveData().observe(this, this.adapter::submitList);
+        this.model.getNewsPageLiveData().observe(this.context, data -> {
+            this.adapter.submitList(data);
+            swipeRefreshLayout.setRefreshing(false);
+        });
 
         return view;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        if (context instanceof MainActivity) {
+            this.context = (MainActivity) context;
+        }
     }
 }

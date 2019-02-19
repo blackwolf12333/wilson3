@@ -1,4 +1,4 @@
-package nl.uscki.appcki.wilson.activities.ui.news;
+package nl.uscki.appcki.wilson.ui.page.news;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,10 +27,12 @@ public class NewsPageAdapter extends PagedListAdapter<NewsItem, NewsItemViewHold
     @Override
     public void onBindViewHolder(@NonNull NewsItemViewHolder holder,
                                  int position) {
-        NewsItem NewsItem = getItem(position);
+        NewsItem newsItem = getItem(position);
 
-        // Note that "NewsItem" can be null if it's a placeholder.
-        holder.bindTo(NewsItem);
+        if (newsItem != null)
+            holder.bindTo(newsItem);
+        else
+            holder.clear();
     }
     
     private static DiffUtil.ItemCallback<NewsItem> DIFF_CALLBACK =

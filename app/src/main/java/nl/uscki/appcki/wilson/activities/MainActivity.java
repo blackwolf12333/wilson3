@@ -1,7 +1,6 @@
 package nl.uscki.appcki.wilson.activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +10,8 @@ import androidx.navigation.Navigation;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
 import nl.uscki.appcki.wilson.R;
-import nl.uscki.appcki.wilson.UserHelper;
-import nl.uscki.appcki.wilson.activities.ui.MenuBottomSheet;
+import nl.uscki.appcki.wilson.helpers.UserHelper;
+import nl.uscki.appcki.wilson.ui.MenuBottomSheet;
 import nl.uscki.appcki.wilson.api.ServiceGenerator;
 
 public class MainActivity extends AppCompatActivity {

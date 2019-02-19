@@ -1,4 +1,4 @@
-package nl.uscki.appcki.wilson;
+package nl.uscki.appcki.wilson.helpers;
 
 import android.content.SharedPreferences;
 

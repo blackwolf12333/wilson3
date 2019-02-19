@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="nl.uscki.appcki.wilson.activities.ui.login.LoginFragment"
+        android:name="nl.uscki.appcki.wilson.ui.page.login.LoginFragment"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action
@@ -16,13 +16,13 @@
     </fragment>
     <fragment
         android:id="@+id/newsPageFragment"
-        android:name="nl.uscki.appcki.wilson.activities.ui.news.NewsFragment"
+        android:name="nl.uscki.appcki.wilson.ui.page.news.NewsFragment"
         android:label="news_page_fragment"
         tools:layout="@layout/news_page_fragment" >
     </fragment>
     <fragment
         android:id="@+id/agendaPageFragment"
-        android:name="nl.uscki.appcki.wilson.activities.ui.agenda.AgendaPageFragment"
+        android:name="nl.uscki.appcki.wilson.ui.page.agenda.AgendaPageFragment"
         android:label="agenda_page_fragment"
         tools:layout="@layout/agenda_page_fragment" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/roephoekPageFragment"
-        android:name="nl.uscki.appcki.wilson.activities.ui.roephoek.RoephoekPageFragment"
+        android:name="nl.uscki.appcki.wilson.ui.page.roephoek.RoephoekPageFragment"
         android:label="roephoek_page_fragment"
         tools:layout="@layout/roephoek_page_fragment" >
         <action
@@ -40,7 +40,5 @@
     </fragment>
     <action
         android:id="@+id/action_global_logout"
-        app:destination="@id/loginFragment"
-        app:popUpToInclusive="true"
-        app:popUpTo="@id/loginFragment"/>
+        app:destination="@id/loginFragment" />
 </navigation>

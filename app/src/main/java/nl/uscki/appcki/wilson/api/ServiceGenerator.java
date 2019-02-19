@@ -2,7 +2,7 @@ package nl.uscki.appcki.wilson.api;
 
 import java.io.IOException;
 
-import nl.uscki.appcki.wilson.UserHelper;
+import nl.uscki.appcki.wilson.helpers.UserHelper;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

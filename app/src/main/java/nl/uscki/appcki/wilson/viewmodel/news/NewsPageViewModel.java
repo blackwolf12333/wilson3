@@ -1,7 +1,5 @@
 package nl.uscki.appcki.wilson.viewmodel.news;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.DataSource;
@@ -16,7 +14,6 @@ public class NewsPageViewModel extends ViewModel {
 
     public LiveData<PagedList<NewsItem>> getNewsPageLiveData() {
         if (newsPageLiveData == null) {
-            Log.e("Viewmodel", "bla");
             NewsPageDataSourceFactory factory = new NewsPageDataSourceFactory();
             newsPageDataSource = factory.create();
             newsPageLiveData = new LivePagedListBuilder<>(factory, 5).build();
