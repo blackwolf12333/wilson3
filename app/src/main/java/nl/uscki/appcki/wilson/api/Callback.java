@@ -26,6 +26,9 @@ public abstract class Callback<T> implements retrofit2.Callback<T> {
     }
 
     private void handleError(Response<T> response) {
+        if (response.code() == 403) {
+
+        }
     }
 
     public abstract void onSucces(Response<T> response);

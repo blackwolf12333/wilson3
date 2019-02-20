@@ -17,11 +17,13 @@ public class AgendaParticipant implements IWilsonBaseItem {
     @Expose
     private String note;
     @Expose
-    private String subscribed;
+    private DateTime subscribed;
     @Expose
     private Boolean backuplist;
     @Expose
     private Boolean attends;
+    @Expose
+    private String answer;
 
     /**
      * 
@@ -88,15 +90,6 @@ public class AgendaParticipant implements IWilsonBaseItem {
 
     /**
      * 
-     * @param subscribed
-     *     The subscribed
-     */
-    public void setSubscribed(String subscribed) {
-        this.subscribed = subscribed;
-    }
-
-    /**
-     * 
      * @return
      *     The backuplist
      */
@@ -131,4 +124,8 @@ public class AgendaParticipant implements IWilsonBaseItem {
         this.attends = attends;
     }
 
+
+    public String getAnswer() {
+        return answer;
+    }
 }

@@ -31,7 +31,7 @@ public class ServiceGenerator {
         // set your desired log level
         logging.setLevel(LoggingInterceptor.Level.BODY);
         logging.addFilter("www.uscki.nl").addFilter("api/media/");
-        //httpClient.addInterceptor(logging);// TODO uncomment voor debug output
+        httpClient.addInterceptor(logging);// TODO uncomment voor debug output
 
         httpClient.addInterceptor(new Interceptor() {
             @Override

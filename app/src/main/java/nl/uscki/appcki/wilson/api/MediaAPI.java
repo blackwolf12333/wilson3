@@ -6,7 +6,7 @@ import android.net.Uri;
  * Created by peter on 2/6/16.
  */
 public class MediaAPI {
-    public static String API_URL = ServiceGenerator.API_BASE_URL + "media/";
+    public static String API_URL = ServiceGenerator.API_BASE_URL + "media/file/";
 
     public enum MediaSize {
         SMALL,
@@ -19,8 +19,10 @@ public class MediaAPI {
         }
     }
 
-    public static String getMediaUrl(int id) {
-        return API_URL + id + "/" + MediaAPI.MediaSize.NORMAL.toString();
+    public static String getMediaUrl(Integer id) {
+        if (id == null)
+            id = 72137;// TODO temporary default media id
+        return API_URL + id + "/" + MediaSize.LARGE.toString();
     }
 
     public static String getMediaUrl(int id, MediaSize size) {

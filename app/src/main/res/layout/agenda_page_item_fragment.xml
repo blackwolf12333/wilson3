@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/agenda_page_item_top_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="32dp"
+        android:paddingRight="12dp"
+        android:transitionName="poster_image"
+        android:elevation="2dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/agenda_page_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/agenda_page_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textSize="14sp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/agenda_page_item_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="#000000"
+        android:drawableStart="@drawable/location_pin"
+        android:drawablePadding="12dp"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/agenda_page_item_cost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="#000000"
+        android:drawableStart="@drawable/money"
+        android:drawablePadding="12dp"
+        android:textSize="18sp" />
+</LinearLayout>

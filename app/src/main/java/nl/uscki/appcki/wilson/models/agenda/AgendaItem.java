@@ -55,10 +55,13 @@ public class AgendaItem implements IWilsonBaseItem{
     @Expose
     private List<AgendaParticipant> backupList;
     @Expose
-    private List<AgendaCategory> categories;
+    private AgendaCategory category;
     @Expose
     private String question;
-    @Expose String[] possible_answers;
+    @Expose
+    String[] possible_answers;
+    @Expose
+    AgendaParticipant userParticipation;
 
     public List<AgendaParticipant> getParticipants() {
         return participants;
@@ -220,12 +223,8 @@ public class AgendaItem implements IWilsonBaseItem{
         this.backupList = backupList;
     }
 
-    public List<AgendaCategory> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<AgendaCategory> categories) {
-        this.categories = categories;
+    public AgendaCategory getCategory() {
+        return category;
     }
 
     public String getQuestion() { return question; }

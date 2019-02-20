@@ -1,6 +1,7 @@
 package nl.uscki.appcki.wilson.helpers;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 
 public class UserHelper {
     private static UserHelper singleton;
@@ -23,6 +24,9 @@ public class UserHelper {
         if (this.sharedPreferences.contains("token")) {
             this.TOKEN = this.sharedPreferences.getString("token", "");
         }
+
+        // TODO remove
+        Log.e("UserHelper", this.TOKEN);
     }
 
     public void destroy() {

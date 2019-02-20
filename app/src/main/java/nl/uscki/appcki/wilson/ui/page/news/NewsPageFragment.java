@@ -17,7 +17,7 @@ import nl.uscki.appcki.wilson.R;
 import nl.uscki.appcki.wilson.activities.MainActivity;
 import nl.uscki.appcki.wilson.viewmodel.news.NewsPageViewModel;
 
-public class NewsFragment extends Fragment {
+public class NewsPageFragment extends Fragment {
     private NewsPageViewModel model;
     private NewsPageAdapter adapter;
 

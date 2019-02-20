@@ -10,9 +10,9 @@ import androidx.navigation.Navigation;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
 import nl.uscki.appcki.wilson.R;
+import nl.uscki.appcki.wilson.api.ServiceGenerator;
 import nl.uscki.appcki.wilson.helpers.UserHelper;
 import nl.uscki.appcki.wilson.ui.MenuBottomSheet;
-import nl.uscki.appcki.wilson.api.ServiceGenerator;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -46,13 +46,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
+    public void onBackPressed() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
         if (UserHelper.getInstance().getToken().equals("") && navController.getCurrentDestination().getId() == R.id.loginFragment)
-            return true;
+            super.onBackPressed();
 
-        return navController.navigateUp();
+        if (navController.getCurrentDestination().getId() == R.id.newsPageFragment)
+            super.onBackPressed();
+
+        navController.navigateUp();
     }
 
     @Override

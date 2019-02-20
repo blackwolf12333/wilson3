@@ -14,7 +14,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.internal.LinkedTreeMap;
 
 import nl.uscki.appcki.wilson.R;
-import nl.uscki.appcki.wilson.api.ServiceGenerator;
+import nl.uscki.appcki.wilson.api.MediaAPI;
 import nl.uscki.appcki.wilson.helpers.bbparser.Parser;
 import nl.uscki.appcki.wilson.helpers.bbparser.elements.GenericElement;
 import nl.uscki.appcki.wilson.models.news.NewsItem;
@@ -64,7 +64,7 @@ public class NewsItemViewHolder extends RecyclerView.ViewHolder {
 
                 if (element.getType().equals("Media")) {
                     String content = element.getContent().get(0).toString();
-                    url = ServiceGenerator.API_BASE_URL + "media/file/" + content +"/large";
+                    url = MediaAPI.getMediaUrl(Integer.parseInt(content));
                 }
 
                 Glide.with(imageView)
