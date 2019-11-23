@@ -8,8 +8,8 @@ import androidx.paging.PageKeyedDataSource;
 import java.io.IOException;
 
 import nl.uscki.appcki.wilson.api.Services;
-import nl.uscki.appcki.wilson.models.agenda.Agenda;
-import nl.uscki.appcki.wilson.models.agenda.AgendaItem;
+import nl.uscki.appcki.wilson.api.models.agenda.Agenda;
+import nl.uscki.appcki.wilson.api.models.agenda.AgendaItem;
 import retrofit2.Response;
 
 public class AgendaPageDataSource extends PageKeyedDataSource<Integer, AgendaItem> {

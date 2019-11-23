@@ -9,7 +9,7 @@ import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 
 import nl.uscki.appcki.wilson.R;
-import nl.uscki.appcki.wilson.models.news.NewsItem;
+import nl.uscki.appcki.wilson.api.models.news.NewsItem;
 
 public class NewsPageAdapter extends PagedListAdapter<NewsItem, NewsItemViewHolder> {
 

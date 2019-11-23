@@ -10,8 +10,8 @@ import java.io.IOException;
 
 import nl.uscki.appcki.wilson.api.NetworkState;
 import nl.uscki.appcki.wilson.api.Services;
-import nl.uscki.appcki.wilson.models.news.NewsItem;
-import nl.uscki.appcki.wilson.models.news.NewsOverview;
+import nl.uscki.appcki.wilson.api.models.news.NewsItem;
+import nl.uscki.appcki.wilson.api.models.news.NewsOverview;
 import retrofit2.Response;
 
 public class NewsPageDataSource extends PageKeyedDataSource<Integer, NewsItem> {

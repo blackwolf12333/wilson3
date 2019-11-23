@@ -6,7 +6,7 @@ import androidx.paging.DataSource;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
-import nl.uscki.appcki.wilson.models.news.NewsItem;
+import nl.uscki.appcki.wilson.api.models.news.NewsItem;
 
 public class NewsPageViewModel extends ViewModel {
     private LiveData<PagedList<NewsItem>> newsPageLiveData;

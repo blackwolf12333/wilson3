@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        ServiceGenerator.init();
         UserHelper.getInstance().init(this.getSharedPreferences("user", MODE_PRIVATE));
+        ServiceGenerator.init(UserHelper.getInstance());
 
-        BottomAppBar appBar = findViewById(R.id.bar);
+        BottomAppBar appBar = findViewById(R.id.appBar);
         appBar.setNavigationOnClickListener(view -> new MenuBottomSheet().show(getSupportFragmentManager(), "menuBottomSheet"));
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onStop();
+        super.onDestroy();
 
         UserHelper.getInstance().destroy();
     }

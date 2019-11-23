@@ -17,7 +17,7 @@ import nl.uscki.appcki.wilson.R;
 import nl.uscki.appcki.wilson.api.MediaAPI;
 import nl.uscki.appcki.wilson.helpers.bbparser.Parser;
 import nl.uscki.appcki.wilson.helpers.bbparser.elements.GenericElement;
-import nl.uscki.appcki.wilson.models.news.NewsItem;
+import nl.uscki.appcki.wilson.api.models.news.NewsItem;
 import nl.uscki.appcki.wilson.ui.view.BBTextView;
 
 public class NewsItemViewHolder extends RecyclerView.ViewHolder {

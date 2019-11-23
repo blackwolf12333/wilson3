@@ -6,7 +6,7 @@ import androidx.paging.DataSource;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
-import nl.uscki.appcki.wilson.models.agenda.AgendaItem;
+import nl.uscki.appcki.wilson.api.models.agenda.AgendaItem;
 
 public class AgendaPageViewModel extends ViewModel {
     private LiveData<PagedList<AgendaItem>> agendaPageLiveData;

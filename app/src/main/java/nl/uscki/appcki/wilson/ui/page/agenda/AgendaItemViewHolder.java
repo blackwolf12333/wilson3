@@ -18,7 +18,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import nl.uscki.appcki.wilson.R;
 import nl.uscki.appcki.wilson.api.MediaAPI;
-import nl.uscki.appcki.wilson.models.agenda.AgendaItem;
+import nl.uscki.appcki.wilson.api.models.agenda.AgendaItem;
 
 class AgendaItemViewHolder extends RecyclerView.ViewHolder {
     AgendaItemViewHolder(View view) {

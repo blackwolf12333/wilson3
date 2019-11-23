@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.paging.DataSource;
 
-import nl.uscki.appcki.wilson.models.news.NewsItem;
+import nl.uscki.appcki.wilson.api.models.news.NewsItem;
 
 public class NewsPageDataSourceFactory extends DataSource.Factory<Integer, NewsItem> {
     MutableLiveData<NewsPageDataSource> source = new MutableLiveData<>();

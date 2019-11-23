@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.paging.DataSource;
 
-import nl.uscki.appcki.wilson.models.agenda.AgendaItem;
+import nl.uscki.appcki.wilson.api.models.agenda.AgendaItem;
 
 public class AgendaPageDataSourceFactory extends DataSource.Factory<Integer, AgendaItem> {
     MutableLiveData<AgendaPageDataSource> source = new MutableLiveData<>();

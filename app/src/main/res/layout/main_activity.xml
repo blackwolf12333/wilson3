@@ -13,10 +13,14 @@
         app:navGraph="@navigation/nav_graph" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bar"
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        app:title="Peter Maatman"
+        app:titleTextColor="@color/colorBlack"
+        app:titleEnabled="true"
         app:navigationIcon="@drawable/ic_wilson" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -24,6 +28,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_anchor="@id/bar" />
+        app:layout_anchor="@id/appBar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

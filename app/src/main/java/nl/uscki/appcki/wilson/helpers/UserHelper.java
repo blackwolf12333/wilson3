@@ -3,7 +3,9 @@ package nl.uscki.appcki.wilson.helpers;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-public class UserHelper {
+import nl.uscki.appcki.wilson.api.IUserHelper;
+
+public class UserHelper implements IUserHelper {
     private static UserHelper singleton;
     private String TOKEN;
     private SharedPreferences sharedPreferences;
